@@ -2,7 +2,7 @@ package ims;
 
 import java.util.*;
 
-public class InventoryManager {
+public class InventoryManager {   //Abstraction
     private final List<Product> products;
     private final List<String> logs = new ArrayList<>();
 
@@ -19,6 +19,7 @@ public class InventoryManager {
     public void addProduct(Product p) {
         products.add(p);
         log("Added product: " + p.getName());
+        System.out.println("Product added");
     }
 
     // Search using strategy
@@ -53,25 +54,25 @@ public class InventoryManager {
 
         for (Product p : products) {
             if (p.getStock() == 0) {
-                System.out.println("❌ " + p.getName() + " → OUT OF STOCK");
+                System.out.println(p.getName() + "OUT OF STOCK");
                 found = true;
             } else if (p.getStock() > 50) {
-                System.out.println("📦 " + p.getName() + " → OVERSTOCK");
+                System.out.println(p.getName() + "OVERSTOCK");
                 found = true;
             } else if (p.getStock() < 3) {
-                System.out.println("⚠️ " + p.getName() + " → LOW STOCK");
+                System.out.println(p.getName() + "LOW STOCK");
                 found = true;
             }
         }
 
         if (!found) {
-            System.out.println("✅ All products are within normal stock levels.");
+            System.out.println("All products are within normal stock levels.");
         }
 
         log("Ran stock status check.");
     }
 
-    // 📊 Sales Report
+    // Sales Report
     public void viewSalesReport() {
         System.out.println("\n=== Sales Report ===");
         double totalRevenue = 0;
@@ -79,7 +80,7 @@ public class InventoryManager {
 
         for (Product p : products) {
             double salesValue = p.getSalesValue(); // qtySold × price
-            System.out.println(p.getName() + " → Sold: " + p.getQtySold() +
+            System.out.println(p.getName() + "Sold: " + p.getQtySold() +
                     " | Revenue: ₱" + salesValue);
             totalRevenue += salesValue;
 
@@ -88,9 +89,9 @@ public class InventoryManager {
             }
         }
 
-        System.out.println("=== Total Revenue: ₱" + totalRevenue + " ===");
+        System.out.println("\n=== Total Revenue: ₱" + totalRevenue + " ===");
         if (topSeller != null) {
-            System.out.println("🏆 Top Seller: " + topSeller.getName() +
+            System.out.println("Top Seller: " + topSeller.getName() +
                     " | Revenue: ₱" + topSeller.getSalesValue());
         }
 

@@ -23,24 +23,42 @@ public class Menu {
             System.out.println("7. Stock Status Check");
             System.out.println("8. Sales Report");
             System.out.println("9. Exit");
-            System.out.print("Choice: ");
+            System.out.print("Choose an option: ");
             int choice = in.nextInt();
             in.nextLine();
 
             switch (choice) {
-                case 1 -> manager.viewInventory();
-                case 2 -> addProduct();
-                case 3 -> searchProduct();
-                case 4 -> editProduct();
-                case 5 -> manager.viewLogs();
-                case 6 -> deleteLogs();
-                case 7 -> manager.stockStatusCheck();
-                case 8 -> manager.viewSalesReport(); // ✅ new option
-                case 9 -> {
-                    System.out.println("Exiting...");
+                case 1:
+                    System.out.println("\n=== Guitar Accessories Products ===");
+                    manager.viewInventory();
+                    break;
+                case 2:
+                    addProduct();
+                    break;
+                case 3:
+                    searchProduct();
+                    break;
+                case 4:
+                    editProduct();
+                    break;
+                case 5:
+                    manager.viewLogs();
+                    break;
+                case 6:
+                    deleteLogs();
+                    break;
+                case 7:
+                    manager.stockStatusCheck();
+                    break;
+                case 8:
+                    manager.viewSalesReport(); // new option
+                    break;
+                case 9: {
+                    System.out.println("Exiting System. Thank you.");
                     return;
                 }
-                default -> System.out.println("Invalid choice.");
+                default:
+                    System.out.println("Invalid choice.");
             }
         }
     }
@@ -106,7 +124,7 @@ public class Menu {
         System.out.println("3. Price");
         System.out.println("4. Stock");
         System.out.println("5. Sold Quantity");
-        System.out.print("Choice: ");
+        System.out.print("Choose an option: ");
         int choice = in.nextInt();
         in.nextLine();
 
@@ -139,9 +157,9 @@ public class Menu {
                 in.nextLine();
                 if (sold > 0 && sold <= p.getStock()) {
                     p.addSale(sold); // decreases stock, increases sold
-                    System.out.println("✅ Sold updated. Total sales value: ₱" + p.getSalesValue());
+                    System.out.println("Sold updated. Total sales value: ₱" + p.getSalesValue());
                 } else {
-                    System.out.println("Invalid sold quantity. Must be > 0 and ≤ current stock.");
+                    System.out.println("Invalid sold quantity.");
                 }
             }
             default -> System.out.println("Invalid choice.");

@@ -1,3 +1,8 @@
+/*
+    The Guitar Store Inventory System integration with the SDG:12 Responsible Consumption were in the manager
+    that can access all and control the inventory.
+ */
+
 package ims;
 
 import java.util.List;
@@ -15,7 +20,7 @@ public class Main {
         String password = in.nextLine();
 
         if (auth.authenticate(username, password)) {
-            System.out.println("Login successful. Welcome, " + username + "!");
+            System.out.println("Login successful.\n \nWelcome, " + username + "!");
             Manager managerUser = new Manager(username);
             managerUser.showPermissions();
 

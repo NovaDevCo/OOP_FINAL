@@ -7,6 +7,7 @@ public class CategorySearch implements SearchStrategy {
         this.category = category.toLowerCase();
     }
 
+    //Polymorphism
     @Override
     public boolean matches(Product product) {
         return product.getCategory().toLowerCase().contains(category);

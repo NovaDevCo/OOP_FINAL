@@ -1,7 +1,7 @@
 package ims;
 
 public class Product {
-    private String id;
+    private String id;   //Encapsulation
     private String category;
     private String name;
     private String description;
@@ -11,6 +11,7 @@ public class Product {
     private String status;
 
     public Product(String id, String category, String name, double price, int stock) {
+        // Constructor
         this.id = id;
         this.category = category;
         this.name = name;
@@ -30,12 +31,12 @@ public class Product {
     public int getQtySold() { return qtySold; }
     public String getStatus() { return status; }
 
-    // ✅ New: Sales Value (Revenue)
+    //New: Sales Value (Revenue)
     public double getSalesValue() {
         return qtySold * price;
     }
 
-    // Setters with validation
+    // Setters
     public void setCategory(String category) { this.category = category; }
     public void setName(String name) { this.name = name; }
     public void setDescription(String description) { this.description = description; }

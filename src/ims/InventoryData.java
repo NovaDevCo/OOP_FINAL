@@ -8,7 +8,6 @@ public final class InventoryData {
 
     public static List<Product> sampleProducts() {
         List<Product> samples = new ArrayList<>();
-
         samples.add(new Product("001", "Electric Guitars", "HILLS The Next HN4 S/SS", 32999.00, 3));
         samples.add(new Product("002", "Electric Guitars", "HILLS The Next HZ7 S/GB", 46199.00, 8));
         samples.add(new Product("003", "Electric Guitars", "HILLS The Next HN6 G/UV", 50999.00, 6));
